@@ -12,4 +12,9 @@ SITE="ifconfig.co"
 CURL="/usr/bin/curl"
 CURL_OPTS="-s -4"
 
+if [ ! -d "${OUTPUT}" ]; then
+   echo "Please create ${OUTPUT} directory with mkdir -p ${OUTPUT}"
+   exit 2
+fi
+
 ${CURL} ${CURL_OPTS} ${SITE} -o ${OUTPUT}/${MADATE}-myip.txt
